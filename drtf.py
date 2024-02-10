@@ -155,11 +155,11 @@ def main():
 		all_medians=[]
 		# Nawawy's end
 		while(True):
-			x_postprandial,target,done=next(testgen)
-			x = x_postprandial[:,:,:-1]
 			# Nawawy's start
+			x_postprandial,target,done=next(testgen)
 			if done:
 				break
+			x = x_postprandial[:,:,:-1]
 			# Nawawy's end
 			totalpoints = totalpoints+x.shape[0]
 			#loop through each directory and load predicions
@@ -272,9 +272,9 @@ def train_and_evaluate(curmodel,maindir,forecast_length,backcast_length,sub,base
 	index = 0
 	while (True):
 		x_postprandial, target, done = next(testgen)
-		x = x_postprandial[:,:,:-1]
 		if done:
 			break
+		x = x_postprandial[:,:,:-1]
 		if index == 0:
 			allPatients_benign = x.reshape(-1, backcast_length * nv)
 			allPatients_postprandial = x_postprandial.reshape((-1, backcast_length * (nv+1)))
@@ -347,11 +347,11 @@ def fit(net, optimiser, traingen,valgen,mydir,device, basedir):
 		while(True):
 			optimiser.zero_grad()
 			net.train()
-			x_postprandial,target,done=next(traingen)
-			x = x_postprandial[:, :, :-1]
 			# Nawawy's start
+			x_postprandial, target, done = next(traingen)
 			if done:
 				break
+			x = x_postprandial[:, :, :-1]
 			# Nawawy's end
 			total=total+x.shape[0]
 			forecast,fores,backs,backsum,backtargs= net(   torch.tensor(x, dtype=torch.float).to(device)	 )
@@ -378,15 +378,9 @@ def fit(net, optimiser, traingen,valgen,mydir,device, basedir):
 			with torch.no_grad():
 				# Nawawy's start
 				x_postprandial,target,done=next(valgen)
-				print('--------------------------------------')
-				print('x_postprandial')
-				print(x_postprandial)
-				print(x_postprandial.shape)
-				print(type(x_postprandial))
-				print('--------------------------------------')
-				x = x_postprandial[:, :, :-1]
 				if done:
 					break
+				x = x_postprandial[:, :, :-1]
 				# Nawawy's end
 				total=total+x.shape[0]
 				forecast,fores,backs,backsum,backtargs= net(   torch.tensor(x, dtype=torch.float).to(device)	 )
