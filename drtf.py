@@ -417,9 +417,8 @@ def eval(net, optimiser, testgen,mydir,  device):
 		rmselosses=[]
 		preds=[]
 		while(True):
+			x,target,done=next(testgen)
 			# Nawawy's start
-			x_postprandial,target,done=next(testgen)
-			x = x_postprandial[:, :, :-1]
 			if done:
 				break
 			# Nawawy's end
