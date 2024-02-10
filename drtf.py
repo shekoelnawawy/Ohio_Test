@@ -378,6 +378,12 @@ def fit(net, optimiser, traingen,valgen,mydir,device, basedir):
 			with torch.no_grad():
 				# Nawawy's start
 				x_postprandial,target,done=next(valgen)
+				print('--------------------------------------')
+				print('x_postprandial')
+				print(x_postprandial)
+				print(x_postprandial.shape)
+				print(type(x_postprandial))
+				print('--------------------------------------')
 				x = x_postprandial[:, :, :-1]
 				if done:
 					break
