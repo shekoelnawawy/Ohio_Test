@@ -289,16 +289,12 @@ def train_and_evaluate(curmodel,maindir,forecast_length,backcast_length,sub,base
 	explorer = process_config_file(cf, net, feature_extractor=feature_extractor, input_processor_list=[])
 	explorer.scoring_function = mse
 	explore_params = [allPatients_benign, backcast_length, nv]
-	print('-----------------------------')
-	print('allPatients_benign')
-	print(allPatients_benign.shape)
-	print(type(allPatients_benign))
-	print('-----------------------------')
-	print('-----------------------------')
-	print('explore_params')
-	print(type(explore_params))
-	print('-----------------------------')
-	allPatients_adversarial = np.array(explorer.explore(explore_params))
+	x = explorer.explore(explore_params)
+	print('x')
+	print(x)
+	print(x.shape)
+	print(type(x))
+	allPatients_adversarial = np.array(x)
 
 	allPatients_benign = allPatients_benign.reshape(-1, backcast_length, nv)  # 15701, 12, 7
 	allPatients_postprandial = allPatients_postprandial.reshape(-1, backcast_length, nv+1)	# 15701, 12, 8
