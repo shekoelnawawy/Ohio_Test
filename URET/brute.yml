@@ -40,8 +40,8 @@ transformer_params:
           number_type: "int"
           input_constraints: #{"bounds": {"lower":40, "upper":400, "method":0"}}
                 bounds:
-                    lower: 180
-                    upper: 499
+                    lower: 80
+                    upper: 120
                     method: 0
           subtransformer_args:
               - name: "Modify"
