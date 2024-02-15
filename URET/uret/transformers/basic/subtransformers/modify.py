@@ -26,6 +26,11 @@ class Modify(SubTransformer):
 
         self.low = abs(low)
         self.high = abs(high)
+        print('self.low')
+        print(self.low)
+
+        print('self.high')
+        print(self.high)
 
         self.number_type = number_type
         if number_type == "int":
