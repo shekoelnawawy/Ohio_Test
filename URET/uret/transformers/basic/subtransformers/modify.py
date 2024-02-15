@@ -77,27 +77,7 @@ class Modify(SubTransformer):
         new_x[(x >= self.low) & (x <= self.high)] = x[(x >= self.low) & (x <= self.high)]
         increment_value = new_x - x
         transformation_record = transformation_record + increment_value
-        print('--------------------------------------------')
-        print('x')
-        print(x)
-        print(x.shape)
-        print(type(x))
-        print('--------------------------------------------')
-        print('new_x')
-        print(new_x)
-        print(new_x.shape)
-        print(type(new_x))
-        print('--------------------------------------------')
-        print('increment_value')
-        print(increment_value)
-        print(increment_value.shape)
-        print(type(increment_value))
-        print('--------------------------------------------')
-        print('transformation_record')
-        print(transformation_record)
-        print(transformation_record.shape)
-        print(type(transformation_record))
-        exit(1)
+
         return new_x, transformation_record
 
     def get_action_list(self):
