@@ -41,7 +41,7 @@ transformer_params:
           input_constraints: #{"bounds": {"lower":40, "upper":400, "method":0"}}
                 bounds:
                     lower: 180
-                    upper: 195
+                    upper: 185
                     method: 0
           subtransformer_args:
               - name: "Modify"
